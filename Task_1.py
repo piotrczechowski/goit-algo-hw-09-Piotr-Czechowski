@@ -1,3 +1,5 @@
+import time
+
 def find_coins_greedy(amount):
     coins = [50, 25, 10, 5, 2, 1]
     result = {}
@@ -32,9 +34,29 @@ def find_min_coins(amount):
 
     return result
 
-amount = 113
-print("Greedy algorithm result:")
-print(find_coins_greedy(amount))
+# Performance measurement
+def measure_performance(amount):
+    start_time = time.time()
+    greedy_result = find_coins_greedy(amount)
+    greedy_time = time.time() - start_time
 
-print("Dynamic programming result:")
-print(find_min_coins(amount))
+    start_time = time.time()
+    dp_result = find_min_coins(amount)
+    dp_time = time.time() - start_time
+
+    return greedy_time, dp_time
+
+# Measure performance for different amounts
+amounts = [100, 1000, 5000, 10000, 20000, 50000, 100000]
+performance_results = {}
+
+for amount in amounts:
+    greedy_time, dp_time = measure_performance(amount)
+    performance_results[amount] = (greedy_time, dp_time)
+
+# Print performance results
+for amount, times in performance_results.items():
+    print(f"Amount: {amount}, Greedy Time: {times[0]:.6f}s, DP Time: {times[1]:.6f}s")
+
+print (find_coins_greedy(amount))
+print (find_min_coins(amount))
