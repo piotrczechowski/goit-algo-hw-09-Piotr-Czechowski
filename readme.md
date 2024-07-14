@@ -17,7 +17,7 @@ amount = 113
 result = find_coins_greedy(amount)
 print(result)  # Output: {50: 2, 10: 1, 2: 1, 1: 1}
 
-# Recomendation 
+
 
 For large sums, the dynamic programming approach ensures the minimum number of coins, but it is computationally expensive. The greedy algorithm, while faster, may not always yield the optimal solution for all coin sets but is very efficient in terms of execution time.
 
